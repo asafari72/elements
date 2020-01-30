@@ -1,0 +1,396 @@
+$color-suffix: color;
+$size-suffix: size;
+
+$white: #fff;
+$black: #000;
+$primary: #2196f3;
+$secondary: #673ab7;
+$gray: #696969;
+$success: #2e933c;
+$info: #2732cc;
+$warning: #faa916;
+$danger: #db0f23;
+$shadow: rgba(0, 0, 0, 0.1);
+
+$colors: (
+  "white": $white,
+  "black": $black,
+  "trans-white": transparentize($white, 0.85),
+  "trans-black": transparentize($black, 0.85),
+  "primary": (
+    "": $primary,
+    "fore": $white,
+    "light": lighten($primary, 7%),
+    "dark": darken($primary, 7%),
+    "trans-dark": transparentize($primary, 0.85),
+    "trans-light": transparentize($primary, 0.85)
+  ),
+  "secondary": (
+    "": $secondary,
+    "fore": $white,
+    "light": lighten($secondary, 15%),
+    "dark": darken($secondary, 7%),
+    "trans-dark": transparentize($secondary, 0.85),
+    "trans-light": transparentize($secondary, 0.85)
+  ),
+  "info": (
+    "": $info,
+    "fore": $white,
+    "light": lighten($info, 15%),
+    "dark": darken($info, 15%),
+    "trans-dark": transparentize($info, 0.85),
+    "trans-light": transparentize($info, 0.85)
+  ),
+  "success": (
+    "": $success,
+    "fore": $white,
+    "light": lighten($success, 15%),
+    "dark": darken($success, 15%),
+    "trans-dark": transparentize($success, 0.85),
+    "trans-light": transparentize($success, 0.85)
+  ),
+  "warning": (
+    "": $warning,
+    "fore": $white,
+    "light": lighten($warning, 15%),
+    "dark": darken($warning, 15%),
+    "trans-dark": transparentize($warning, 0.85),
+    "trans-light": transparentize($warning, 0.85)
+  ),
+  "danger": (
+    "": $danger,
+    "fore": $white,
+    "light": lighten($danger, 15%),
+    "dark": darken($danger, 15%),
+    "trans-dark": transparentize($danger, 0.85),
+    "trans-light": transparentize($danger, 0.85)
+  ),
+  "gray": (
+    "": $gray,
+    "fore": $black,
+    "light": lighten($gray, 15%),
+    "dark": darken($gray, 15%),
+    "trans-dark": transparentize($gray, 0.85),
+    "trans-light": transparentize($gray, 0.85)
+  )
+);
+
+$sizes: (
+  "": (
+    xxs: 0.4rem,
+    xs: 0.6rem,
+    sm: 0.8rem,
+    md: 1rem,
+    lg: 1.2rem,
+    xl: 1.4rem,
+    xxl: 1.6rem
+  ),
+  "border": (
+    width: 1px,
+    radius: 4px,
+    circle: 50px
+  )
+);
+
+@mixin ax-border-radius {
+  border-radius: var(--ax-size-border-radius);
+  -moz-border-radius: var(--ax-size-border-radius);
+  -webkit-border-radius: var(--ax-size-border-radius);
+  -o-border-radius: var(--ax-size-border-radius);
+}
+@mixin ax-transition-all {
+  transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+}
+:root {
+  // Create Sizes
+  @each $name, $size in $sizes {
+    @if type-of($size) == "map" {
+      @each $subname, $variant in $size {
+        @if $name == "" {
+          --ax-size-#{$name}#{$subname}: #{$variant};
+        } @else {
+          --ax-size-#{$name}-#{$subname}: #{$variant};
+        }
+      }
+    }
+  }
+
+  // Create Colors
+  @each $name, $color in $colors {
+    @if type-of($color) == "map" {
+      @each $subname, $variant in $color {
+        @if $subname== "" {
+          --ax-#{$name}-#{$color-suffix}: #{$variant};
+        } @else {
+          --ax-#{$name}-#{$subname}-#{$color-suffix}: #{$variant};
+        }
+      }
+    } @else {
+      --ax-#{$name}-#{$color-suffix}: #{$color};
+    }
+  }
+}
+//
+
+@each $name, $size in $sizes {
+  .ax {
+    @if type-of($size) == "map" {
+      @each $subname, $variant in $size {
+        @if $name == "" {
+          &.#{$subname} {
+            font-size: var(--ax-size-#{$subname}) !important;
+          }
+        }
+      }
+    }
+  }
+}
+// Create Classes
+@each $name, $color in $colors {
+  .ax {
+    @if type-of($color) == "map" {
+      @each $subname, $variant in $color {
+        @if $subname== "" {
+          &.#{$name} {
+            &.button {
+              color: var(--ax-#{$name}-fore-#{$color-suffix}) !important;
+              background-color: var(--ax-#{$name}-#{$color-suffix}) !important;
+
+              &:hover {
+                background-color: var(--ax-#{$name}-dark-#{$color-suffix}) !important;
+              }
+              &:focus {
+                background-color: var(--ax-#{$name}-light-#{$color-suffix}) !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.ax {
+  &.button {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    min-height: 1em;
+    outline: 0;
+    border: none;
+    vertical-align: baseline;
+    margin: 0 0.25em 0 0;
+    padding: 0.67857143em 1em;
+    text-transform: none;
+    text-shadow: none;
+    font-family: inherit;
+    //line-height: 1em;
+    font-style: normal;
+    text-align: center;
+    text-decoration: none;
+    @include ax-border-radius();
+    -webkit-tap-highlight-color: transparent;
+    &:hover {
+      @include ax-transition-all();
+    }
+    &:focus {
+      @include ax-transition-all();
+    }
+    &.icon {
+      padding: 0.67857143em 1em;
+    }
+    &.icon:not(.button) {
+      height: 0.85714286em;
+      opacity: 0.8;
+      margin: 0 0.42857143em 0 -0.21428571em;
+      -webkit-transition: opacity 0.1s ease;
+      transition: opacity 0.1s ease;
+      vertical-align: "";
+      color: "";
+    }
+    &.labeled {
+      padding-left: 4.07142857em;
+      padding-right: 1.5em;
+      [dir="rtl"] & {
+        padding-right: 4.07142857em;
+        padding-left: 1.5em;
+      }
+      & > .icon {
+        top: 0;
+        left: 0;
+        position: absolute;
+        height: 100%;
+        //line-height: 1;
+        border-radius: 0;
+        border-top-left-radius: inherit;
+        border-bottom-left-radius: inherit;
+        text-align: center;
+        margin: 0;
+        width: 2.57142857em;
+        background-color: transparentize($black, 0.85);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        [dir="rtl"] & {
+          left: auto;
+          right: 0 !important;
+          border-top-right-radius: inherit;
+          border-bottom-right-radius: inherit;
+          border-top-left-radius: 0 !important ;
+          border-bottom-left-radius: 0 !important ;
+        }
+      }
+    }
+  }
+
+  &.input {
+    font-size: 1em;
+    position: relative;
+    font-weight: 400;
+    font-style: normal;
+    display: inline-flex;
+    color: rgba(0, 0, 0, 0.87);
+    &.icon {
+      & > input {
+        padding-left: 2.67142857em;
+        [dir="rtl"] & {
+          padding-left: 0 !important;
+          padding-right: 2.67142857em !important;
+        }
+      }
+      & > i.icon {
+        cursor: default;
+        position: absolute;
+        //line-height: 1;
+        text-align: center;
+        top: 0;
+        left: 0;
+        margin: 0;
+        height: 100%;
+        width: 2.67142857em;
+        opacity: 0.5;
+        border-radius: 0 0.28571429rem 0.28571429rem 0;
+        -webkit-transition: opacity 0.3s ease;
+        transition: opacity 0.3s ease;
+        [dir="rtl"] & {
+          right: 0 !important;
+          left: auto !important;
+        }
+      }
+    }
+    & > input {
+      margin: 0;
+      max-width: 100%;
+      flex: 1 0 auto;
+      outline: 0;
+      -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+      text-align: left;
+      font-family: inherit;
+      padding: 0.713em 1em;
+      background: #fff;
+      border: 1px solid rgba(34, 36, 38, 0.15);
+      color: rgba(0, 0, 0, 0.87);
+      box-shadow: none;
+      @include ax-border-radius();
+      [dir="rtl"] & {
+        text-align: right !important;
+      }
+      &:focus {
+        border-color: var(--ax-primary-color);
+        color: rgba(0, 0, 0, 0.8);
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        @include ax-transition-all();
+        & + i.icon {
+          opacity: 1 !important;
+          color: var(--ax-primary-color);
+        }
+      }
+
+      &::-webkit-input-placeholder {
+        color: transparentize($black, 0.65);
+        text-align: left;
+        [dir="rtl"] & {
+          text-align: right !important;
+        }
+      }
+
+      &:-ms-input-placeholder {
+        color: transparentize($black, 0.65);
+        text-align: left;
+        [dir="rtl"] & {
+          text-align: right !important;
+        }
+      }
+
+      &::placeholder {
+        color: transparentize($black, 0.65);
+        text-align: left;
+        [dir="rtl"] & {
+          text-align: right !important;
+        }
+      }
+    }
+    i {
+      position: absolute;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 2.771429em;
+      [dir="rtl"] & {
+        right: 0 !important;
+        left: auto !important;
+      }
+    }
+  }
+}
+
+.ax-border-radius {
+  -webkit-border-radius: var(--ax-size-border-radius);
+  -moz-border-radius: var(--ax-size-border-radius);
+  border-radius: var(--ax-size-border-radius);
+}
+.ax-disabled {
+  background-color: var(--ax-gray-light-color) !important;
+  cursor: not-allowed;
+}
+.ax-d-flex {
+  display: flex;
+}
+.ax-d-inline-flex {
+  display: inline-flex;
+}
+.ax-align-center {
+  justify-content: center;
+  align-items: center;
+}
+.ax-pad-none {
+  padding: 0 !important;
+}
+.ax-mrg-none {
+  margin: 0 !important;
+}
+.ax-anim-transition {
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+
+html,
+body {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  line-height: 1.4285em;
+}
+.rtl {
+  direction: rtl;
+  text-align: right;
+}

@@ -1,0 +1,393 @@
+:root {
+  --ax-size-xxs: 0.4rem;
+  --ax-size-xs: 0.6rem;
+  --ax-size-sm: 0.8rem;
+  --ax-size-md: 1rem;
+  --ax-size-lg: 1.2rem;
+  --ax-size-xl: 1.4rem;
+  --ax-size-xxl: 1.6rem;
+  --ax-size-border-width: 1px;
+  --ax-size-border-radius: 4px;
+  --ax-size-border-circle: 50px;
+  --ax-white-color: #fff;
+  --ax-black-color: #000;
+  --ax-trans-white-color: rgba(255, 255, 255, 0.15);
+  --ax-trans-black-color: rgba(0, 0, 0, 0.15);
+  --ax-primary-color: #2196f3;
+  --ax-primary-fore-color: #fff;
+  --ax-primary-light-color: #43a6f5;
+  --ax-primary-dark-color: #0c84e4;
+  --ax-primary-trans-dark-color: rgba(33, 150, 243, 0.15);
+  --ax-primary-trans-light-color: rgba(33, 150, 243, 0.15);
+  --ax-secondary-color: #673ab7;
+  --ax-secondary-fore-color: #fff;
+  --ax-secondary-light-color: #916dd1;
+  --ax-secondary-dark-color: #58319c;
+  --ax-secondary-trans-dark-color: rgba(103, 58, 183, 0.15);
+  --ax-secondary-trans-light-color: rgba(103, 58, 183, 0.15);
+  --ax-info-color: #2732cc;
+  --ax-info-fore-color: #fff;
+  --ax-info-light-color: #5f68e0;
+  --ax-info-dark-color: #1b228c;
+  --ax-info-trans-dark-color: rgba(39, 50, 204, 0.15);
+  --ax-info-trans-light-color: rgba(39, 50, 204, 0.15);
+  --ax-success-color: #2e933c;
+  --ax-success-fore-color: #fff;
+  --ax-success-light-color: #48c659;
+  --ax-success-dark-color: #1c5924;
+  --ax-success-trans-dark-color: rgba(46, 147, 60, 0.15);
+  --ax-success-trans-light-color: rgba(46, 147, 60, 0.15);
+  --ax-warning-color: #faa916;
+  --ax-warning-fore-color: #fff;
+  --ax-warning-light-color: #fcc561;
+  --ax-warning-dark-color: #bf7d04;
+  --ax-warning-trans-dark-color: rgba(250, 169, 22, 0.15);
+  --ax-warning-trans-light-color: rgba(250, 169, 22, 0.15);
+  --ax-danger-color: #db0f23;
+  --ax-danger-fore-color: #fff;
+  --ax-danger-light-color: #f24455;
+  --ax-danger-dark-color: #930a18;
+  --ax-danger-trans-dark-color: rgba(219, 15, 35, 0.15);
+  --ax-danger-trans-light-color: rgba(219, 15, 35, 0.15);
+  --ax-gray-color: #696969;
+  --ax-gray-fore-color: #000;
+  --ax-gray-light-color: #8f8f8f;
+  --ax-gray-dark-color: #434343;
+  --ax-gray-trans-dark-color: rgba(105, 105, 105, 0.15);
+  --ax-gray-trans-light-color: rgba(105, 105, 105, 0.15);
+}
+
+.ax.xxs {
+  font-size: var(--ax-size-xxs) !important;
+}
+.ax.xs {
+  font-size: var(--ax-size-xs) !important;
+}
+.ax.sm {
+  font-size: var(--ax-size-sm) !important;
+}
+.ax.md {
+  font-size: var(--ax-size-md) !important;
+}
+.ax.lg {
+  font-size: var(--ax-size-lg) !important;
+}
+.ax.xl {
+  font-size: var(--ax-size-xl) !important;
+}
+.ax.xxl {
+  font-size: var(--ax-size-xxl) !important;
+}
+
+.ax.primary.button {
+  color: var(--ax-primary-fore-color) !important;
+  background-color: var(--ax-primary-color) !important;
+}
+.ax.primary.button:hover {
+  background-color: var(--ax-primary-dark-color) !important;
+}
+.ax.primary.button:focus {
+  background-color: var(--ax-primary-light-color) !important;
+}
+
+.ax.secondary.button {
+  color: var(--ax-secondary-fore-color) !important;
+  background-color: var(--ax-secondary-color) !important;
+}
+.ax.secondary.button:hover {
+  background-color: var(--ax-secondary-dark-color) !important;
+}
+.ax.secondary.button:focus {
+  background-color: var(--ax-secondary-light-color) !important;
+}
+
+.ax.info.button {
+  color: var(--ax-info-fore-color) !important;
+  background-color: var(--ax-info-color) !important;
+}
+.ax.info.button:hover {
+  background-color: var(--ax-info-dark-color) !important;
+}
+.ax.info.button:focus {
+  background-color: var(--ax-info-light-color) !important;
+}
+
+.ax.success.button {
+  color: var(--ax-success-fore-color) !important;
+  background-color: var(--ax-success-color) !important;
+}
+.ax.success.button:hover {
+  background-color: var(--ax-success-dark-color) !important;
+}
+.ax.success.button:focus {
+  background-color: var(--ax-success-light-color) !important;
+}
+
+.ax.warning.button {
+  color: var(--ax-warning-fore-color) !important;
+  background-color: var(--ax-warning-color) !important;
+}
+.ax.warning.button:hover {
+  background-color: var(--ax-warning-dark-color) !important;
+}
+.ax.warning.button:focus {
+  background-color: var(--ax-warning-light-color) !important;
+}
+
+.ax.danger.button {
+  color: var(--ax-danger-fore-color) !important;
+  background-color: var(--ax-danger-color) !important;
+}
+.ax.danger.button:hover {
+  background-color: var(--ax-danger-dark-color) !important;
+}
+.ax.danger.button:focus {
+  background-color: var(--ax-danger-light-color) !important;
+}
+
+.ax.gray.button {
+  color: var(--ax-gray-fore-color) !important;
+  background-color: var(--ax-gray-color) !important;
+}
+.ax.gray.button:hover {
+  background-color: var(--ax-gray-dark-color) !important;
+}
+.ax.gray.button:focus {
+  background-color: var(--ax-gray-light-color) !important;
+}
+
+.ax.button {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  min-height: 1em;
+  outline: 0;
+  border: none;
+  vertical-align: baseline;
+  margin: 0 0.25em 0 0;
+  padding: 0.67857143em 1em;
+  text-transform: none;
+  text-shadow: none;
+  font-family: inherit;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  border-radius: var(--ax-size-border-radius);
+  -moz-border-radius: var(--ax-size-border-radius);
+  -webkit-border-radius: var(--ax-size-border-radius);
+  -o-border-radius: var(--ax-size-border-radius);
+  -webkit-tap-highlight-color: transparent;
+}
+.ax.button:hover {
+  transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+}
+.ax.button:focus {
+  transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+}
+.ax.button.icon {
+  padding: 0.67857143em 1em;
+}
+.ax.button.icon:not(.button) {
+  height: 0.85714286em;
+  opacity: 0.8;
+  margin: 0 0.42857143em 0 -0.21428571em;
+  -webkit-transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
+  vertical-align: "";
+  color: "";
+}
+.ax.button.labeled {
+  padding-left: 4.07142857em;
+  padding-right: 1.5em;
+}
+[dir=rtl] .ax.button.labeled {
+  padding-right: 4.07142857em;
+  padding-left: 1.5em;
+}
+.ax.button.labeled > .icon {
+  top: 0;
+  left: 0;
+  position: absolute;
+  height: 100%;
+  border-radius: 0;
+  border-top-left-radius: inherit;
+  border-bottom-left-radius: inherit;
+  text-align: center;
+  margin: 0;
+  width: 2.57142857em;
+  background-color: rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+[dir=rtl] .ax.button.labeled > .icon {
+  left: auto;
+  right: 0 !important;
+  border-top-right-radius: inherit;
+  border-bottom-right-radius: inherit;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+.ax.input {
+  font-size: 1em;
+  position: relative;
+  font-weight: 400;
+  font-style: normal;
+  display: inline-flex;
+  color: rgba(0, 0, 0, 0.87);
+}
+.ax.input.icon > input {
+  padding-left: 2.67142857em;
+}
+[dir=rtl] .ax.input.icon > input {
+  padding-left: 0 !important;
+  padding-right: 2.67142857em !important;
+}
+.ax.input.icon > i.icon {
+  cursor: default;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  left: 0;
+  margin: 0;
+  height: 100%;
+  width: 2.67142857em;
+  opacity: 0.5;
+  border-radius: 0 0.28571429rem 0.28571429rem 0;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+[dir=rtl] .ax.input.icon > i.icon {
+  right: 0 !important;
+  left: auto !important;
+}
+.ax.input > input {
+  margin: 0;
+  max-width: 100%;
+  flex: 1 0 auto;
+  outline: 0;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  text-align: left;
+  font-family: inherit;
+  padding: 0.713em 1em;
+  background: #fff;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  color: rgba(0, 0, 0, 0.87);
+  box-shadow: none;
+  border-radius: var(--ax-size-border-radius);
+  -moz-border-radius: var(--ax-size-border-radius);
+  -webkit-border-radius: var(--ax-size-border-radius);
+  -o-border-radius: var(--ax-size-border-radius);
+}
+[dir=rtl] .ax.input > input {
+  text-align: right !important;
+}
+.ax.input > input:focus {
+  border-color: var(--ax-primary-color);
+  color: rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+}
+.ax.input > input:focus + i.icon {
+  opacity: 1 !important;
+  color: var(--ax-primary-color);
+}
+.ax.input > input::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.35);
+  text-align: left;
+}
+[dir=rtl] .ax.input > input::-webkit-input-placeholder {
+  text-align: right !important;
+}
+.ax.input > input:-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.35);
+  text-align: left;
+}
+[dir=rtl] .ax.input > input:-ms-input-placeholder {
+  text-align: right !important;
+}
+.ax.input > input::placeholder {
+  color: rgba(0, 0, 0, 0.35);
+  text-align: left;
+}
+[dir=rtl] .ax.input > input::placeholder {
+  text-align: right !important;
+}
+.ax.input i {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.771429em;
+}
+[dir=rtl] .ax.input i {
+  right: 0 !important;
+  left: auto !important;
+}
+
+.ax-border-radius {
+  -webkit-border-radius: var(--ax-size-border-radius);
+  -moz-border-radius: var(--ax-size-border-radius);
+  border-radius: var(--ax-size-border-radius);
+}
+
+.ax-disabled {
+  background-color: var(--ax-gray-light-color) !important;
+  cursor: not-allowed;
+}
+
+.ax-d-flex {
+  display: flex;
+}
+
+.ax-d-inline-flex {
+  display: inline-flex;
+}
+
+.ax-align-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.ax-pad-none {
+  padding: 0 !important;
+}
+
+.ax-mrg-none {
+  margin: 0 !important;
+}
+
+.ax-anim-transition {
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+
+html,
+body {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  line-height: 1.4285em;
+}
+
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+/*# sourceMappingURL=style.css.map */
